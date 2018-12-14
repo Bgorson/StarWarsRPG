@@ -1,7 +1,7 @@
-.characters {
-    width: 100px;
-    height: 100px;
-    border:black solid 1px ;
-    display:inline-block;
-    margin:5px;
-  }
+img{
+  width:100px;
+}
+ul{
+  justify-content: center;
+  display: flex;
+}

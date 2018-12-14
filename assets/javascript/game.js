@@ -1,27 +1,42 @@
 // Game Logic
-function attackFunction() {
 
-}
-for (var i = 0; i < 4; i++) {
+var data = [
+  {
+       name : "Player1",
+       image : "#",
+       attack : "21",
+       counterAttack:"15"
+   },
+   {
+       name : "Player2",
+       image : "#",
+       attack : "50",
+       counterAttack:"25"
+   },
+   
+   {
+       name : "player3",
+       image : "#",
+       attack : "99",
+       counterAttack:"5"
+   },
+   {
+       name : "Player4",
+       image : "#",
+       attack : "30",
+       counterAttack:"15"
+   },
+]
 
-    var heroes = $("<div>");
-  
-    // First each crystal will be given the class ".crystal-image".
-    // This will allow the CSS to take effect.
-    heroes.addClass("characters");
-  
-    // Each imageCrystal will be given a src link to the crystal image
-    heroes.attr("src", "#");
-  
-    // Each imageCrystal will be given a data attribute called data-crystalValue.
-    // This data attribute will be set equal to the array value.
-    heroes.attr("attack", 10);
+$(data).each(function(i, e){
+  $(".characters").append("<li><img src='" + e.image + "' data-attack='" + e.attack + "' =></li>")
+})
 
-    heroes.attr("counter-attack", 10);
-  
-    // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-    $("#characters").append(heroes);
-  }
+var $characters = $(".characters li img");
+
+$characters.on("click", function(){
+  console.log($(this).attr("data-attack"));
+})
 
 
   /* Logic to be developed:

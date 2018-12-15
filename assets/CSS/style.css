@@ -5,3 +5,23 @@ ul{
   justify-content: center;
   display: flex;
 }
+li {
+  list-style-type:none;
+}
+.opponents {
+  width:200px;
+  height: 100px;
+    justify-content:flex-start
+}
+.enemySide {
+  width:200px;
+  height: 100px;
+   justify-content:flex-start
+
+}
+.allySide {
+  width:200px;
+  height: 100px;
+  justify-content:flex-start
+  
+}

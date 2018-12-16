@@ -6,29 +6,29 @@ var data = [
        image : 'assets/images/luke.jpg',
        attack : "21",
        counterAttack:"15",
-       health:"100"
+       health:"150"
    },
    {
        name : "Obi-Wan",
        image : 'assets/images/obi.jpg',
-       attack : "50",
+       attack : "25",
        counterAttack:"25",
-       health:"100"
+       health:"130"
    },
    
    {
        name : "Darth Maul",
        image : 'assets/images/darthmaul.jpg',
-       attack : "100",
-       counterAttack:"100",
-       health:"100"
+       attack : "30",
+       counterAttack:"10",
+       health:"120"
    },
    {
        name : "Darth Vader",
        image : 'assets/images/darthvadar.jpeg',
-       attack : "30",
+       attack : "20",
        counterAttack:"15",
-       health:"100"
+       health:"150"
    },
 ]
 var winCondition;

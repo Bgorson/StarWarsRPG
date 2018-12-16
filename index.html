@@ -8,34 +8,47 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="assets/CSS/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 </head>
 <body>
-    <h1>Star Wars RPG!</h1>
+    <h1 class = "display-1">Star Wars RPG!</h1>
     <ul class="roster">
     </ul>
 
-    <div>
-        <h2>Your Character</h2>
+    <div class="startingDirections">
+        <h2>Choose Your Character!!</h2>
     </div>
     <ul class="allySide"> </ul>
         
-    </div>
+    
+    <div class ="gameDirections">
+
     <div>
          <h2>Enemies Available to Attack</h2>
          <ul class="opponents"></ul>
     </div>
-    <div>
+
+    
         <h2>Fight Section</h2>
+
         <div class="allyFightSide"></div>
-    </div>
+    
+
     <div>
         <button class= "attackBtn">Attack</button>
     </div>
+
+    <div>
+        <p class= "allyAttacks">Description of Ally Attack</p>
+        <p class= "enemyAttacks">Description of Enemy Attack</p>
+    </div>
+
     <div>
         <h2>Defender</h2>
         <ul class="enemySide"></ul>
     </div>
-    
+
+    </div>
         <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

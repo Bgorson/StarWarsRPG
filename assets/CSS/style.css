@@ -1,44 +1,60 @@
 html {
   box-sizing:border-box;
+  font-family: 'Raleway', sans-serif;
 }
 h1, h2 {
   color: blue;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
 }
 body {
   background-image: url('../images/background.jpg');
   background-size: 100% 100%;
 }
-p {
-  color: blue;
-  font-weight: bold;
-}
 
 .card-header {
-  color: green;
+  color:white;
   font-weight:bold;
   text-align: center;
+  padding:0;
+}
+.card-footer{
+  padding:0;
+}
+.card-body{
+  padding:.25rem;
 }
 .portrait{
-  border:green 2px solid;
+  border:blue 1px solid;
   margin-right:10px;
-}
+ 
+ }
 img {
   height:100px;
 }
 ul{
-  /* justify-content: center; */
   display: flex;
 }
-li {
-  list-style-type:none;
-  text-align: center;
-}
-.enemyside, .allyFightSide {
-  display: flex;
-}
+
 .name {
+  
   text-align: center;
 }
 .hp{
   text-align: center;
+  font-weight:bold;
+  color:yellow;
   }
+.allyFightSide {
+  display: flex;
+  padding-left:40px;
+}
+.attackBtn {
+  margin-top:10px;
+  margin-left:100px;
+}
+.gameDirections {
+  display:none;
+}

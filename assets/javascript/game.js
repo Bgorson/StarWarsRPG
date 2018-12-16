@@ -32,16 +32,20 @@ var data = [
    },
 ]
 var winCondition;
+
 $(data).each(function(i, e){
-     $(".characters").append("<li><img src='" + e.image + "' data-attack='" + e.attack + "' counterAttack='" + e.counterAttack + "'health='" + e.health + "'></li>")
+     $(".roster").append("<li class='portrait' ' data-attack='" + e.attack + "' counterAttack='" + e.counterAttack + "'health=" + e.health + "><p class='name'>"+e.name+"</p><img src='" + e.image + "'><p class='hp'>HP:"+e.health+ "</p></li>")
     winCondition = i;
-    
+        
     })
 
 var ally;
 var enemy;
 var firstPick= true;
-var $characters = $(".characters li img");
+var noPicks = false;
+var heroPick =false;
+var $characters = $(".portrait");
+// var $characters = $(".roster li img");
 var allyAtt;
 var boostAllyAtt= allyAtt;
 var allyHP;
@@ -49,22 +53,23 @@ var enemyHP;
 var target;
 
 
-$characters.on("click", function(){
-    if (firstPick == false){
+$characters.on("click", function(){//ENEMIES
+    if (firstPick == false && noPicks== false){
     target= $(this);
     enemyAtt = $(this).attr("counterAttack");
     enemyHP = $(this).attr("health");
     $(this).appendTo('.enemySide')
     console.log("enemy att is" + enemyAtt);
     console.log(enemyHP);
-    console.log(winCondition)
-    
-    
+    console.log("wins needed"+ winCondition)
+    noPicks = true;
+ 
 }
 })
 
-$characters.on("click", function(){
-    if (firstPick == true){
+$characters.on("click", function(){//ALLY
+    if (firstPick == true && noPicks== false && heroPick == false){
+        console.log(this)
         allyAtt = $(this).attr("data-attack");
         boostAllyAtt = $(this).attr("data-attack");
         allyHP = $(this).attr("health");
@@ -72,7 +77,8 @@ $characters.on("click", function(){
         firstPick = !firstPick;
         $characters.appendTo('.opponents');
         $(this).appendTo('.allySide');
-        
+        heroPick = true;
+             
     }
  
 })
@@ -84,6 +90,7 @@ $(".attackBtn").on("click", function(){
     console.log("enemy hp" + enemyHP)
     console.log("inc attack" + boostAllyAtt)
     console.log("OG attack" + allyAtt)
+
     if (allyHP <= 0){
         alert("Game Over")
 
@@ -92,6 +99,7 @@ $(".attackBtn").on("click", function(){
         alert("you win!")
         target.appendTo(".characters")
         target.css({"display":"none"})
+        noPicks =false;
 
     }
    

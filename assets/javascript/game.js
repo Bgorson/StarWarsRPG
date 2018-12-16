@@ -3,14 +3,14 @@
 var data = [
   {
        name : "Luke",
-       image : 'https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg/revision/latest/scale-to-width-down/500?cb=20170927034529',
+       image : 'assets/images/luke.jpg',
        attack : "21",
        counterAttack:"15",
        health:"100"
    },
    {
        name : "Obi-Wan",
-       image : 'https://nerdist.com/wp-content/uploads/2017/12/download.jpg',
+       image : 'assets/images/obi.jpg',
        attack : "50",
        counterAttack:"25",
        health:"100"
@@ -18,14 +18,14 @@ var data = [
    
    {
        name : "Darth Maul",
-       image : 'https://www.sideshowtoy.com/wp-content/uploads/2015/10/star-wars-darth-maul-sixth-scale-feature-100156.jpg',
+       image : 'assets/images/darthmaul.jpg',
        attack : "99",
        counterAttack:"5",
        health:"100"
    },
    {
        name : "Darth Vader",
-       image : 'https://lumiere-a.akamaihd.net/v1/images/Darth-Vader_6bda9114.jpeg?region=0%2C23%2C1400%2C785&width=768',
+       image : 'assets/images/darthvadar.jpeg',
        attack : "30",
        counterAttack:"15",
        health:"100"
@@ -34,7 +34,14 @@ var data = [
 var winCondition;
 
 $(data).each(function(i, e){
-     $(".roster").append("<li class='portrait' ' data-attack='" + e.attack + "' counterAttack='" + e.counterAttack + "'health=" + e.health + "><p class='name'>"+e.name+"</p><img src='" + e.image + "'><p class='hp'>HP:"+e.health+ "</p></li>")
+    $(".roster").append('<div class= "portrait" " data-attack="' +e.attack + '"\
+    counterAttack="' + e.counterAttack + '"health=' + e.health + ' \
+    card border-success mb-3" style="max-width: 18rem;">\
+    <div class="card-header bg-transparent border-success">'+ e.name+ '</div>\
+    <div class="card-body text-success"><h5 class="card-title"></h5>\
+    <img src="' + e.image + '"></div>\
+    <div class="HP card-footer bg-transparent border-success">HP: ' + e.health + '</div></div>')
+    //  $(".roster").append("<li class='portrait' ' data-attack='" +e.attack + "' counterAttack='" + e.counterAttack + "'health=" + e.health + "><p class='name'>"+e.name+"</p><img src='" + e.image + "'><p class='hp'>HP:"+e.health+ "</p></li>")
     winCondition = i;
         
     })
@@ -51,6 +58,7 @@ var boostAllyAtt= allyAtt;
 var allyHP;
 var enemyHP;
 var target;
+
 
 
 $characters.on("click", function(){//ENEMIES
@@ -76,13 +84,14 @@ $characters.on("click", function(){//ALLY
         console.log("ally hp is"+ allyHP);
         firstPick = !firstPick;
         $characters.appendTo('.opponents');
-        $(this).appendTo('.allySide');
+        $(this).appendTo('.allyFightSide');
         heroPick = true;
+        
              
     }
  
 })
-
+//target footer and re-write
 $(".attackBtn").on("click", function(){
     allyHP= parseInt(allyHP)-parseInt(enemyAtt);
     enemyHP= parseInt(enemyHP)- parseInt(boostAllyAtt);
@@ -90,9 +99,13 @@ $(".attackBtn").on("click", function(){
     console.log("enemy hp" + enemyHP)
     console.log("inc attack" + boostAllyAtt)
     console.log("OG attack" + allyAtt)
+    $(".allyFightSide .HP").text("HP:" + allyHP);
+    $(".enemySide .HP").text("HP:" + enemyHP);
 
     if (allyHP <= 0){
         alert("Game Over")
+        
+
 
     }
     if (enemyHP <= 0){
@@ -122,4 +135,10 @@ console.log($(this).attr("data-attack"));
   do I want each character to be unique
   What is the logic for moving characters, CSS manipulation?
   How do I limit what is a clickable event? 
+  */
+
+  /*
+  Still to be developed:
+  Restarting the game
+  cleaning up interface
   */

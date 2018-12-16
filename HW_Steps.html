@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Calculator</title>
+
+  <style type="text/css">
+    img{
+        width:100px;
+    }
+    ul{
+        justify-content: center;
+        display: flex;
+    }
+  </style>
+
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+    <ul class="characters"> </ul>
+
+    <script>
+        var data = [
+           {
+                name : "c3p0",
+                image : "https://vignette.wikia.nocookie.net/starwars/images/3/3f/C-3PO_TLJ_Card_Trader_Award_Card.png/revision/latest?cb=20180121052644",
+                attack : "21"
+            },
+            {
+                name : "anakin",
+                image : "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png/revision/latest?cb=20130621175844",
+                attack : "50"
+            },
+            
+            {
+                name : "R2D2",
+                image : "https://images-na.ssl-images-amazon.com/images/I/712Lwo7hMoL._SL1500_.jpg",
+                attack : "99"
+            },
+            {
+                name : "Pickle Rick",
+                image : "https://vignette.wikia.nocookie.net/rickandmorty/images/1/19/Pickle_rick_transparent.png/revision/latest?cb=20171025014216",
+                attack : "30"
+            },{
+                name : "c3p0",
+                image : "https://vignette.wikia.nocookie.net/starwars/images/3/3f/C-3PO_TLJ_Card_Trader_Award_Card.png/revision/latest?cb=20180121052644",
+                attack : "21"
+            },
+            {
+                name : "anakin",
+                image : "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png/revision/latest?cb=20130621175844",
+                attack : "50"
+            },
+            
+            {
+                name : "R2D2",
+                image : "https://images-na.ssl-images-amazon.com/images/I/712Lwo7hMoL._SL1500_.jpg",
+                attack : "99"
+            },
+            {
+                name : "Pickle Rick",
+                image : "https://vignette.wikia.nocookie.net/rickandmorty/images/1/19/Pickle_rick_transparent.png/revision/latest?cb=20171025014216",
+                attack : "30"
+            }
+        ]
+        
+
+        $(data).each(function(i, e){
+            $(".characters").append("<li><img src='" + e.image + "' data-attack='" + e.attack + "'></li>")
+        })
+
+        var $characters = $(".characters li img");
+
+        $characters.on("click", function(){
+            console.log($(this).attr("data-attack"));
+        })
+
+    </script>
+
+</body>
+</html>

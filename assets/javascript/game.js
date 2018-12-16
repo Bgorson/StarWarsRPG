@@ -11,7 +11,7 @@ var data = [
    {
        name : "Obi-Wan",
        image : 'assets/images/obi.jpg',
-       attack : "25",
+       attack : "20",
        counterAttack:"25",
        health:"130"
    },
@@ -19,16 +19,16 @@ var data = [
    {
        name : "Darth Maul",
        image : 'assets/images/darthmaul.jpg',
-       attack : "30",
-       counterAttack:"10",
-       health:"120"
+       attack : "35",
+       counterAttack:"20",
+       health:"100"
    },
    {
        name : "Darth Vader",
        image : 'assets/images/darthvadar.jpeg',
        attack : "20",
        counterAttack:"15",
-       health:"150"
+       health:"200"
    },
 ]
 var winCondition;
@@ -59,6 +59,7 @@ var allyHP;
 var enemyHP;
 var target;
 var gameOver=false;
+var enemyPick= false;
 
 
 
@@ -72,6 +73,7 @@ $characters.on("click", function(){//ENEMIES
     console.log(enemyHP);
     console.log("wins needed"+ winCondition)
     noPicks = true;
+    enemyPick= true;
     
  
 }
@@ -98,7 +100,7 @@ $characters.on("click", function(){//ALLY
 })
 //target footer and re-write
 $(".attackBtn").on("click", function(){
-    if (gameOver==false){
+    if (gameOver==false && enemyPick == true){
     $(".allyAttacks").text("You attack for " + boostAllyAtt + " Damage")
     $(".enemyAttacks").text("You are counter-attacked for " + enemyAtt + " Damage")
     allyHP= parseInt(allyHP)-parseInt(enemyAtt);
@@ -122,6 +124,7 @@ $(".attackBtn").on("click", function(){
         target.css({"display":"none"})
         noPicks =false;
         winCondition--;
+        enemyPick = false;
         if (winCondition < 1){
             gameOver= true;
             $(".allyAttacks").text("You won!!!!")
